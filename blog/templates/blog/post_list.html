@@ -1,10 +1,15 @@
 {% extends 'blog/base.html' %}
 {% block content %}
+  <table border="1" width="900">
+  <tr align="center">
+    <td  width="700">Title</td>
+    <td  width="200">作成日</td>
+  </tr>
   {% for post in posts %}
-      <div class="post">
-          <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-          <p>{{ post.text|linebreaksbr }}</p>
-          <p>作成日：{{ post.published_date }}</p>
-      </div>
+    <tr align="center">
+      <td  width="780"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></td>
+      <td  width="120">{{ post.published_date }}</td>
+    </tr>
   {% endfor %}
+  </table>
 {% endblock %}
